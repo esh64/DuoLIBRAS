@@ -3,23 +3,30 @@
 <head>
 <style>
 body {
-  background-color: lightblue;
+  background-color: #E6FDFF;
 }
 
 h1 {
-  color: white;
+  color: #214349;
   text-align: center;
   font-size: 100px;
 }
 
 h2 {
-  color: purple;
+  color: #573C8E;
   text-align: center;
   font-size: 80px;
 }
 
 p{
- color: darkgreen;
+ color: #2E5018;
+ text-align: center;
+ font-size: 60px;
+}
+
+span{
+ color: #2E5018;
+ background-color: #FFFDDE;
  text-align: center;
  font-size: 60px;
 }
@@ -31,9 +38,9 @@ phelpText{
 }
 
 button {
-  background-color: lightyellow;
+  background-color: #FFFDDE;
   border: none;
-  color: pink;
+  color: #2E5018;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -41,6 +48,7 @@ button {
   font-size: 35px;
   margin: 4px 2px; 
   cursor: pointer;
+  border-radius: 65px;
 }
 
 .tooltip .tooltiptext {
@@ -78,7 +86,7 @@ button {
 
 /* Modal Content */
 .modal-content {
-  background-color: lightyellow;
+  background-color: #FFFDDE;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
@@ -92,12 +100,15 @@ button {
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <body style="text-align:center;">
     <!--headers -->
-    <h1 id= 'h1'> Pronomes Pessoais Demonstrativos e possessivos</h1>
-    <h2 id='h2'>Eduardo Sperle<br> Victor Marques <br> Filipe Ribeiro</h2>
+    <div style="background-color: #FFF7F7">
+        <h1 id= 'h1'> Pronomes Pessoais Demonstrativos e possessivos</h1>
+        <h2 id='h2'></h2>
+    </div>
     <!--texto-->
-    <p id='p1'></p>
+    <p id='p1'>Eduardo Sperle<br> Victor Marques <br> Filipe Ribeiro</p>
+    <span id='span1'></span>
     
-    <!--Video Atividade-->
+<!--     Video Atividade -->
     <video muted loop id = 'videoAtividade' src="" autoplay> </video>
     
     <!--imagem -->
@@ -247,10 +258,11 @@ button {
     {
             document.getElementById("imagemSlide").src = '';
             document.getElementById("imagemSlide").height = 0;
-            document.getElementById("tabela").rows[0].style.backgroundColor = "lightblue";
+            document.getElementById("tabela").rows[0].style.backgroundColor = "#E6FDFF";
             document.getElementById("h1").innerHTML = '';
             document.getElementById("h2").innerHTML = '';
             document.getElementById("p1").innerHTML = '';
+            document.getElementById("span1").innerHTML ='';
             document.getElementById("videoAtividade").src='';
             document.getElementById("videoAtividade").height=0;
             document.getElementById("videoButton1").style.display="none";
@@ -292,7 +304,7 @@ button {
         esconderMidias();
         document.getElementById("title").innerHTML = 'Joguinho';
         document.getElementById("h2").innerHTML = questao;
-        document.getElementById("p1").innerHTML = texto;
+        document.getElementById("span1").innerHTML = texto;
         document.getElementById("videoButton1").style="background: url('')";
         document.getElementById("videoButton1").onclick=opcaoAresposta;
         document.getElementById("button1Video").src=opcaoA;
@@ -309,7 +321,7 @@ button {
         document.getElementById("button3Video").height=opcaoCS;
     }
 
-    function joguinhoQuestaoLibra(questaoTexto, questaoVideoN, opcaoA, opcaoAresposta, opcaoB, opcaoBresposta, opcaoC, opcaoCresposta, questaoVideonS=370)
+    function joguinhoQuestaoLibra(questaoTexto, questaoVideoN, opcaoA, opcaoAresposta, opcaoB, opcaoBresposta, opcaoC, opcaoCresposta, questaoVideonS=470)
     {
         esconderMidias();
         document.getElementById("title").innerHTML = 'Joguinho';
@@ -336,9 +348,9 @@ button {
             document.getElementById("h2").innerHTML = 'Clique nos sinais em ordem para formar a frase abaixo';
             document.getElementById("title").innerHTML = 'Joguinho';
             //texto
-            document.getElementById("p1").innerHTML = frase;
+            document.getElementById("span1").innerHTML = frase;
             //barra resposta
-            document.getElementById("tabela").rows[0].style.backgroundColor = "lightyellow";
+            document.getElementById("tabela").rows[0].style.backgroundColor = "#FFFDDE";
             respostaCorreta=resposta;
             //botões inferiores
             //botão1
@@ -391,7 +403,7 @@ button {
         //controle de página aumentar o valor máximo para ser o número de "slides"
         else if (e.keyCode == '39')
         {// right arrow
-            if (PageIndex<38){PageIndex+=1;}
+            if (PageIndex<46){PageIndex+=1;}
         }
         
         //resetando atributos e valores quando tocar na tecla
@@ -405,7 +417,7 @@ button {
         
         if (PageIndex==0)//pagina inicial
         {
-            aulaPage('Homepage Trabalho Libras Pronomes', 'Pronomes Pessoais Demonstrativos e possessivos<br>', '<br><br>Eduardo Sperle <br> Victor Marques <br> Filipe Ribeiro');
+            aulaPage('Homepage Trabalho Libras Pronomes', 'Pronomes Pessoais Demonstrativos e possessivos<br>', '','<br>Eduardo Sperle <br> Victor Marques <br> Filipe Ribeiro');
         }
         
         //pronomes pessoais
@@ -516,64 +528,97 @@ button {
         }
         if (PageIndex==25)
         {
+            aulaPage('Pronomes possessivos', '', 'Plurais:<br>Nosso', 'É igual ao sinal de nós.', 'nosso.mp4', 700);
+        }
+        if (PageIndex==26)
+        {
             aulaPage('Pronomes possessivos', '', 'Plurais:<br>Seus/Suas', '', 'seus.mp4', 700);
         }
-
-        if (PageIndex==26)
+        if (PageIndex==27)
         {
             aulaPage('Pronomes possessivos', '', 'Plurais:<br>Deles/Delas', '', 'deles.mp4', 700);
         }
         
         //atividades
         
-        if (PageIndex==27)
+        if (PageIndex==28)
         {
             aulaPage('Atividades', 'Hora do joguinho', '', 'Responda corretamente as perguntas a seguir');
         }
-        if (PageIndex==28)
-        {
-            joguinhoOpcoesLibras('Clique no sinal de ess@', '' ,'esse.mp4', opcaoCerta, 'este.mp4', opcaoErrada, 'aquele.mp4', opcaoErrada);
-        }
         if (PageIndex==29)
         {
-            joguinhoQuestaoLibra('Que sinal é este?', 'aquele.mp4', 'Esse', opcaoErrada, 'Este', opcaoErrada, 'Aquele', opcaoCerta)
+            joguinhoQuestaoLibra('Que sinal é este?', 'dele.mp4', 'Aquele', opcaoErrada, 'Seu', opcaoErrada, 'Dele', opcaoCerta);
         }
         if (PageIndex==30)
         {
-           joguinhoClicarOrdem('Esta borracha é branca', 'aquele.mp4', 'esse.mp4', 'este.mp4', 'borracha.mp4', 'caneta.mp4', 'azul.mp4', 'branco.mp4', '347','', '', '', 'Borracha','Caneta', 'Azul', 'Branco');
+            joguinhoOpcoesLibras('Clique no sinal de ess@', '' ,'esse.mp4', opcaoCerta, 'este.mp4', opcaoErrada, 'aquele.mp4', opcaoErrada);
         }
         if (PageIndex==31)
         {
-            joguinhoQuestaoLibra('Que sinal é este?', 'este.mp4', 'Branco', opcaoErrada, 'Este', opcaoCerta, 'Aquele', opcaoErrada);
+            joguinhoQuestaoLibra('Que sinal é este?', 'aquele.mp4', 'Esse', opcaoErrada, 'Este', opcaoErrada, 'Aquele', opcaoCerta)
         }
         if (PageIndex==32)
         {
-            joguinhoQuestaoLibra('Qual o significado da frase abaixo?', 'frase1.mp4', 'Esta borracha é minha', opcaoErrada, 'Esta borracha é sua', opcaoErrada, 'Essa borracha é minha', opcaoCerta);
+           joguinhoClicarOrdem('Esta borracha é branca', 'aquele.mp4', 'esse.mp4', 'este.mp4', 'borracha.mp4', 'caneta.mp4', 'azul.mp4', 'branco.mp4', '347','', '', '', 'Borracha','Caneta', 'Azul', 'Branco');
         }
         if (PageIndex==33)
         {
-            joguinhoOpcoesLibras('Clique no equivalente em libras da frase abaixo:', 'Ele gosta daquele livro' ,'frase2Certa.mp4', opcaoCerta, 'frase2Errada1.mp4', opcaoErrada, 'frase2Errada2.mp4', opcaoErrada);
+            joguinhoQuestaoLibra('Que sinal é este?', 'este.mp4', 'Branco', opcaoErrada, 'Este', opcaoCerta, 'Aquele', opcaoErrada);
         }
         if (PageIndex==34)
         {
-            joguinhoOpcoesLibras('Clique no equivalente em libras da frase abaixo:', 'Nós temos essas canetas' ,'frase3Errada1.mp4', opcaoErrada, 'frase3Certa.mp4', opcaoCerta, 'frase3Errada2.mp4', opcaoErrada);
+            joguinhoQuestaoLibra('Qual o significado da frase abaixo?', 'frase1.mp4', 'Esta borracha é minha', opcaoErrada, 'Esta borracha é sua', opcaoErrada, 'Essa borracha é minha', opcaoCerta);
         }
         if (PageIndex==35)
         {
-            joguinhoQuestaoLibra('Qual o significado da frase abaixo?', 'frase4.mp4', 'Eles tem aquela caneta', opcaoErrada, 'Vocês tem aquela caneta', opcaoErrada, 'Vocês tem essa caneta', opcaoCerta);
+            joguinhoQuestaoLibra('Que sinal é este?', 'nos.mp4', 'Nós', opcaoCerta, 'Você', opcaoErrada, 'Ele', opcaoErrada);
         }
+        
         if (PageIndex==36)
         {
-            joguinhoClicarOrdem('Nós temos aquelas canetas azuis', 'nos.mp4', 'eu.mp4', 'ter.mp4', 'aquele.mp4', 'caneta.mp4', 'azul.mp4', 'esse.mp4', '13456','', '', 'Ter', '','Caneta', 'Azul', '');
+            joguinhoOpcoesLibras('Clique no equivalente em libras da frase abaixo:', 'Ele gosta daquele livro' ,'frase2Certa.mp4', opcaoCerta, 'frase2Errada1.mp4', opcaoErrada, 'frase2Errada2.mp4', opcaoErrada);
         }
         if (PageIndex==37)
         {
-            joguinhoClicarOrdem('Eles tem essas borrachas', 'voce.mp4', 'eles.mp4', 'ele.mp4', 'aquele.mp4', 'esse.mp4', 'borracha.mp4', 'ter.mp4', '2756','', '', '', '','', 'Borracha', 'Ter');
+            joguinhoQuestaoLibra('Que sinal é este?', 'meu2.mp4', 'Seu', opcaoErrada, 'Meu', opcaoCerta, 'Dele', opcaoErrada);
         }
-        //ultimo slide
         if (PageIndex==38)
         {
-            aulaPage('Fim', 'Fim', 'Obrigado pela preseça', 'Fontes:<br>http://www.acessibilidadebrasil.org.br/libras_3/<br>https://www.youtube.com/watch?v=2MWdBPOK5qA<br>slides do Driver');
+            joguinhoOpcoesLibras('Clique no equivalente em libras da frase abaixo:', 'Nós temos essas canetas' ,'frase3Errada1.mp4', opcaoErrada, 'frase3Certa.mp4', opcaoCerta, 'frase3Errada2.mp4', opcaoErrada);
+        }
+        if (PageIndex==39)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'seus.mp4', 'Deles', opcaoErrada, 'Seus', opcaoCerta, 'Dele', opcaoErrada);
+        }
+        if (PageIndex==40)
+        {
+            joguinhoQuestaoLibra('Qual o significado da frase abaixo?', 'frase4.mp4', 'Eles tem aquela caneta', opcaoErrada, 'Vocês tem aquela caneta', opcaoErrada, 'Vocês tem essa caneta', opcaoCerta);
+        }
+        if (PageIndex==41)
+        {
+            joguinhoClicarOrdem('Nós temos aquelas canetas azuis', 'nos.mp4', 'eu.mp4', 'ter.mp4', 'aquele.mp4', 'caneta.mp4', 'azul.mp4', 'esse.mp4', '13456','', '', 'Ter', '','Caneta', 'Azul', '');
+        }
+        if (PageIndex==42)
+        {
+            joguinhoClicarOrdem('Eles tem essas borrachas', 'voce.mp4', 'eles.mp4', 'ter.mp4', 'este.mp4', 'esse.mp4', 'borracha.mp4', 'ele.mp4', '2356','', '', 'Ter', 'branco','', 'Borracha', '');
+        }
+        if (PageIndex==43)
+        {
+            joguinhoClicarOrdem('Este livro é deles', 'branco.mp4', 'este.mp4', 'ele.mp4', 'livro.mp4', 'seus.mp4', 'deles.mp4', 'caneta.mp4', '246','Branco', '', '', 'Livro','', '', 'Caneta');
+        }
+        if (PageIndex==44)
+        {
+            joguinhoClicarOrdem('Eu vejo aquele menino', 'ver.mp4', 'menino.mp4', 'nos.mp4', 'este.mp4', 'aquele.mp4', 'eu.mp4', 'seus.mp4', '6152','Ver', 'Menino', '', '','', '', '');
+        }
+        if (PageIndex==45)
+        {
+            joguinhoClicarOrdem('Este e esse são quase iguais.', 'quase.mp4', 'esse.mp4', 'igual.mp4', 'branco.mp4', 'este.mp4', 'eu.mp4', 'seus.mp4', '5213','Quase', '', 'Igual', 'Branco','', '', '');
+        }
+        
+        //ultimo slide
+        if (PageIndex==46)
+        {
+            aulaPage('Fim', 'Fim', 'Obrigado pela presença', '●Fontes:<br><a href="http://www.acessibilidadebrasil.org.br/libras_3">Dicionario Libras</a><br><a href="https://www.youtube.com/watch?v=2MWdBPOK5qA">Tube Libras</a><br>Slides do Drive<br>●Engenharia de Software:<br><a href="https://github.com/esh64/DuoLIBRAS">esh64/DuoLIBRAS</a>');
         }
     }
   </script>
