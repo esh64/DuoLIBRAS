@@ -98,7 +98,8 @@ button {
 </head>
 <title id='title'>Homepage Trabalho Libras</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<body style="text-align:center;">
+
+<body style="text-align:center" onload='aviso()'>
     <!--headers -->
     <div style="background-color: #FFF7F7">
         <h1 id= 'h1'> Pronomes Pessoais Demonstrativos e possessivos</h1>
@@ -187,22 +188,30 @@ button {
         <td><button id='EnviarResposta' onclick=verificarResposta() style="display:none;">Enviar Resposta</td>
         <td><button id='ResetarResposta' onclick=resetarResposta() style="display:none;">Resetar Respostas</td>
     </table>
-
+    
   <script>
     PageIndex=0;
     var resposta="";
     var respostaCorreta="";
     var countTimes=0;
+    
     document.body.onkeydown = checkKey;
     
     //definindo função onclick na janela do navegador para esconder o dialogBox
-    window.onclick = function(event) {
+    window.onclick = function(event)
+    {
         if (event.target ==  document.getElementById('dialogBox'))
         {
             document.getElementById('dialogBox').style.display = "none";
         }
     }
-    
+    //definindo função que avisa ao usuário sobre o uso da página
+    function aviso()
+    {
+        document.getElementById('dialogBoxText').innerHTML = 
+    '1)Diminua o zoom do navegador para 50%<br>2)Esta página não é mobile friendly<br>3)A mudança de slides é feita por meio das "setas" do teclado. Esquerda e Direita<br>4)Ao pressionar qualquer tecla a página dá refresh nos conteúdos midiáticos';
+        document.getElementById('dialogBox').style.display = "block";
+    }
     //definindo função para exibir o dialogBox com mensagem de Erro
     function opcaoErrada()
     {
@@ -467,7 +476,7 @@ button {
         }
         if (PageIndex==11)
         {
-            aulaPage('Pronomes Demonstrativos', '', 'Est@', '● Equivalente à este/deste/esta/desta/isto/disto<br>● Usado para indicar algo próximo de quem fala<br>● Expressão facial ajuda a indicar quando está muito próximo', 'este.mp4', 700);
+            aulaPage('Pronomes Demonstrativos', '', 'Est@', '● Equivalente à este/deste/esta/desta/isto/disto/aqui<br>● Usado para indicar algo próximo de quem fala<br>● Expressão facial ajuda a indicar quando está muito próximo', 'este.mp4', 700);
         }
         if (PageIndex==12)
         {
@@ -475,7 +484,7 @@ button {
         }
         if (PageIndex==13)
         {
-            aulaPage('Pronomes Demonstrativos', '', 'Ess@', '● Equivalente à esse/desse/dessa/essa/isso/disso<br>● Usado para indicar algo próximo de quem ouve', 'esse.mp4', 700);
+            aulaPage('Pronomes Demonstrativos', '', 'Ess@', '● Equivalente à esse/desse/dessa/essa/isso/disso/aí<br>● Usado para indicar algo próximo de quem ouve', 'esse.mp4', 700);
         }
         if (PageIndex==14)
         {
@@ -483,7 +492,7 @@ button {
         }
         if (PageIndex==15)
         {
-            aulaPage('Pronomes Demonstrativos', '', 'Aquel@', '● Equivalente à aquele/daquele/aquela/daquela/aquilo/daquilo<br>● Usado para indicar algo distante de quem fala e de quem ouve<br>● Expressão facial ajuda a indicar quando estiver bastante longe','aquele.mp4', 700);
+            aulaPage('Pronomes Demonstrativos', '', 'Aquel@', '● Equivalente à aquele/daquele/aquela/daquela/aquilo/daquilo/ali<br>● Usado para indicar algo distante de quem fala e de quem ouve<br>● Expressão facial ajuda a indicar quando estiver bastante longe','aquele.mp4', 700);
         }
         if (PageIndex==16)
         {
@@ -618,7 +627,7 @@ button {
         //ultimo slide
         if (PageIndex==46)
         {
-            aulaPage('Fim', 'Fim', 'Obrigado pela presença', '●Fontes:<br><a href="http://www.acessibilidadebrasil.org.br/libras_3">Dicionario Libras</a><br><a href="https://www.youtube.com/watch?v=2MWdBPOK5qA">Tube Libras</a><br>Slides do Drive<br>●Engenharia de Software:<br><a href="https://github.com/esh64/DuoLIBRAS">esh64/DuoLIBRAS</a>');
+            aulaPage('Fim', 'Fim', 'Obrigado pela presença', '●Fontes:<br><a href="http://www.acessibilidadebrasil.org.br/libras_3">Dicionário Libras</a><br><a href="https://www.youtube.com/watch?v=2MWdBPOK5qA">Tube Libras</a><br>Slides do Drive<br>●Engenharia de Software:<br><a href="https://github.com/esh64/DuoLIBRAS">esh64/DuoLIBRAS</a>');
         }
     }
   </script>
