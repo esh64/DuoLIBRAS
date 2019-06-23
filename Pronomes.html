@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #E6FDFF;
+}
+
+h1 {
+  color: #214349;
+  text-align: center;
+  font-size: 100px;
+}
+
+h2 {
+  color: #573C8E;
+  text-align: center;
+  font-size: 80px;
+}
+
+p{
+ color: darkgreen;
+ text-align: center;
+ font-size: 60px;
+}
+
+span{
+ color: #2E5018;
+ background-color: #FFFDDE;
+ text-align: center;
+ font-size: 60px;
+}
+
+phelpText{
+ color: white;
+ text-align: center;
+ font-size: 25px;
+}
+
+button {
+  background-color: #FFFDDE;
+  border: none;
+  color: darkgreen;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; 
+  font-size: 35px;
+  margin: 4px 2px; 
+  cursor: pointer;
+  border-radius: 65px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 0px 0px;
+
+  /* Position the tooltip */
+   position: absolute; 
+  
+   z-index: 1; 
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #FFFDDE;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 70%;
+}
+
+</style>
+</head>
+<title id='title'>Homepage Trabalho Libras</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<body style="text-align:center" onload='aviso()'>
+    <!--headers -->
+    <div style="background-color: #FFF7F7">
+        <h1 id= 'h1'> Pronomes Pessoais, Demonstrativos e possessivos</h1>
+        <h2 id='h2'></h2>
+    </div>
+    <!--texto-->
+    <p id='p1'>Eduardo Sperle<br> Victor Marques <br> Filipe Ribeiro</p>
+    <span id='span1'></span>
+    
+<!--     Video Atividade -->
+    <video muted loop id = 'videoAtividade' src="" autoplay> </video>
+    
+    <!--imagem -->
+    <img id = "imagemSlide" src="">
+    
+    <!--dialogBox-->
+    <div id="dialogBox" class="modal">
+    <!-- Modal content myModal-->
+        <div class="modal-content">
+            <p id="dialogBoxText"> </p>
+             <br>
+            <video muted loop id="dialogBoxVideo" src="" autoplay height=500> </p>
+        </div>
+    </div>
+    
+    <!--Atividades-->
+    <table id="tabela" align="center">
+    <tr>
+        <!--Botões-->
+        <td><button id='videoButton1' onclick="" style="display:none;"><video muted loop id = 'button1Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton2' onclick="" style="display:none;"><video muted loop id = 'button2Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton3' onclick="" style="display:none;"><video muted loop id = 'button3Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton4' onclick="" style="display:none;"><video muted loop id = 'button4Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton5' onclick="" style="display:none;"><video muted loop id = 'button5Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton6' onclick="" style="display:none;"><video muted loop id = 'button6Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton7' onclick="" style="display:none;"><video muted loop id = 'button7Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='textButton1' onclick="" style="display:none;" ><p id = 'button1Text'></p></button></td>
+        <td><button id='textButton2' onclick="" style="display:none;" ><p id = 'button2Text'></p></button></td>
+        <td><button id='textButton3' onclick="" style="display:none;" ><p id = 'button3Text'></p></button></td>
+    </tr>
+    <tr>
+        <!--Botões-->
+        <td>
+            <div class="tooltip">
+                <button id='videoButton1Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button1VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton1LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+        <td>
+            <div class="tooltip">
+                <button id='videoButton2Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button2VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton2LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+        <td>
+            <div class="tooltip">
+                <button id='videoButton3Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button3VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton3LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+        <td>
+            <div class="tooltip">
+                <button id='videoButton4Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button4VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton4LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+        <td>
+            <div class="tooltip">
+                <button id='videoButton5Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button5VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton5LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+        <td>
+            <div class="tooltip">
+                <button id='videoButton6Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button6VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton6LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+        <td>
+            <div class="tooltip">
+                <button id='videoButton7Low' height=200 onclick="" style="display:none;"><video muted loop id = 'button7VideoLow' height=200 src="" autoplay> </video></button>
+                <span class="tooltiptext"> <phelpText id='videoButton7LowHelpText'></phelpText>  </span>
+            </div>
+        </td>
+    </tr>
+        <td><button id='EnviarResposta' onclick=verificarResposta() style="display:none;">Enviar Resposta</td>
+        <td><button id='ResetarResposta' onclick=resetarResposta() style="display:none;">Resetar Respostas</td>
+    </table>
+    
+  <script>
+    PageIndex=0;
+    var resposta="";
+    var respostaCorreta="";
+    var countTimes=0;
+    
+    document.body.onkeydown = checkKey;
+    
+    //definindo função onclick na janela do navegador para esconder o dialogBox
+    window.onclick = function(event)
+    {
+        if (event.target ==  document.getElementById('dialogBox'))
+        {
+            document.getElementById('dialogBox').style.display = "none";
+        }
+    }
+    //definindo função que avisa ao usuário sobre o uso da página
+    function aviso()
+    {
+        document.getElementById('dialogBoxText').innerHTML = 
+    '1)Diminua o zoom do navegador para 50%<br>2)Esta página não é mobile friendly<br>3)A mudança de slides é feita por meio das "setas" do teclado. Esquerda e Direita<br>4)Ao pressionar qualquer tecla a página dá refresh nos conteúdos midiáticos';
+        document.getElementById('dialogBox').style.display = "block";
+    }
+    //definindo função para exibir o dialogBox com mensagem de Erro
+    function opcaoErrada()
+    {
+           document.getElementById("dialogBoxVideo").src='errar.mp4';
+           document.getElementById('dialogBoxText').innerHTML = 'Você errou... <br>Tente de novo!';
+           document.getElementById('dialogBox').style.display = "block";
+    }
+    //definindo função para exibir o dialogBox com mensagem de Acerto
+    function opcaoCerta()
+    {
+        document.getElementById('dialogBoxText').innerHTML = 'Você acertou!';
+        document.getElementById("dialogBoxVideo").src='parabens.mp4';
+        document.getElementById('dialogBox').style.display = "block";
+    }
+    //definindo função que verifica resposta do usuário
+    function verificarResposta()
+    {
+        if (resposta==respostaCorreta)
+        {
+            opcaoCerta();
+        }
+        else
+        {
+            opcaoErrada();
+        }
+    }
+    //definindo função que apaga a resposta do usuário
+    function resetarResposta()
+    {
+        countTimes=0;
+        resposta='';
+        for (buttonIndex=1; buttonIndex<=7; buttonIndex++)
+        {
+            document.getElementById("videoButton"+buttonIndex.toString(10)).style.display="None";
+        }
+    }    
+    //definindo função que coloca os inputs do usuário na barra de resposta
+    function compondoFrase(botao,src)
+    {   
+        if (countTimes<7)
+        {
+            resposta+=botao;
+            countTimes+=1;
+            var strCountTimes=countTimes.toString(10);
+            document.getElementById("videoButton"+strCountTimes).style="background: url('')";
+            document.getElementById("videoButton"+strCountTimes).onclick='';
+            document.getElementById("button"+strCountTimes+"Video").src=src;
+            document.getElementById("button"+strCountTimes+"Video").height=200;
+        }
+    }
+    //definindo função que esconde todos os videos, botoes e imagens
+    function esconderMidias()
+    {
+            document.getElementById("imagemSlide").src = '';
+            document.getElementById("imagemSlide").height = 0;
+            document.getElementById("tabela").rows[0].style.backgroundColor = "#E6FDFF";
+            document.getElementById("h1").innerHTML = '';
+            document.getElementById("h2").innerHTML = '';
+            document.getElementById("p1").innerHTML = '';
+            document.getElementById("span1").innerHTML ='';
+            document.getElementById("videoAtividade").src='';
+            document.getElementById("videoAtividade").height=0;
+            document.getElementById("videoButton1").style.display="none";
+            document.getElementById("videoButton2").style.display="none";
+            document.getElementById("videoButton3").style.display="none";
+            document.getElementById("textButton1").style.display="none";
+            document.getElementById("textButton2").style.display="none";
+            document.getElementById("textButton3").style.display="none";
+            document.getElementById("videoButton1Low").style.display="none";
+            document.getElementById("videoButton2Low").style.display="none";
+            document.getElementById("videoButton3Low").style.display="none";
+            document.getElementById("videoButton4Low").style.display="none";
+            document.getElementById("videoButton5Low").style.display="none";
+            document.getElementById("videoButton6Low").style.display="none";
+            document.getElementById("videoButton7Low").style.display="none";
+            document.getElementById("EnviarResposta").style.display="none";
+            document.getElementById("ResetarResposta").style.display="none";
+    }
+    //definindo função de exibir slide de aula
+    function aulaPage(ttitle='',th1='', th2='', tp1='', nvideo='', svideo=0, nimage='', simage=0)
+    {
+            esconderMidias();
+            //image
+            document.getElementById("imagemSlide").src = nimage;//nimagem é o nome da imagem
+            document.getElementById("imagemSlide").height=simage;//simagem é o tamanho da imagem
+            //header
+            document.getElementById("title").innerHTML = ttitle;//sttitle é o texto do titulo
+            document.getElementById("h1").innerHTML = th1;//th1 é o texto do header1
+            document.getElementById("h2").innerHTML = th2;//th2 é o texto do header2
+            //texto
+            document.getElementById("p1").innerHTML = tp1;//tp1 é o texto do p1
+            //video
+            document.getElementById("videoAtividade").src=nvideo//nvideo é o nome do video
+            document.getElementById("videoAtividade").height=svideo;//svideo é o tamanho do video
+    }
+    
+    function joguinhoOpcoesLibras(questao, texto,opcaoA, opcaoAresposta, opcaoB, opcaoBresposta, opcaoC, opcaoCresposta, opcaoAS=450, opcaoBS=450, opcaoCS=450)
+    {
+        esconderMidias();
+        document.getElementById("title").innerHTML = 'Joguinho';
+        document.getElementById("h2").innerHTML = questao;
+        document.getElementById("span1").innerHTML = texto;
+        document.getElementById("videoButton1").style="background: url('')";
+        document.getElementById("videoButton1").onclick=opcaoAresposta;
+        document.getElementById("button1Video").src=opcaoA;
+        document.getElementById("button1Video").height=opcaoAS;
+        //botão2
+        document.getElementById("videoButton2").style="background: url('')";
+        document.getElementById("videoButton2").onclick=opcaoBresposta;
+        document.getElementById("button2Video").src=opcaoB;
+        document.getElementById("button2Video").height=opcaoBS;
+        //botão3
+        document.getElementById("videoButton3").style="background: url('')";
+        document.getElementById("videoButton3").onclick=opcaoCresposta;
+        document.getElementById("button3Video").src=opcaoC;
+        document.getElementById("button3Video").height=opcaoCS;
+    }
+
+    function joguinhoQuestaoLibra(questaoTexto, questaoVideoN, opcaoA, opcaoAresposta, opcaoB, opcaoBresposta, opcaoC, opcaoCresposta, questaoVideonS=470)
+    {
+        esconderMidias();
+        document.getElementById("title").innerHTML = 'Joguinho';
+        document.getElementById("h2").innerHTML = questaoTexto;
+        document.getElementById("videoAtividade").src=questaoVideoN;//nome do video
+        document.getElementById("videoAtividade").height=questaoVideonS;//tamanho do video
+        document.getElementById("textButton1").style.display="block";
+        document.getElementById("textButton1").onclick=opcaoAresposta;
+        document.getElementById("button1Text").innerHTML = opcaoA;
+        //botão 2
+        document.getElementById("textButton2").style.display="block";
+        document.getElementById("textButton2").onclick=opcaoBresposta;
+        document.getElementById("button2Text").innerHTML = opcaoB;
+        //botão 3
+        document.getElementById("textButton3").style.display="block";
+        document.getElementById("textButton3").onclick=opcaoCresposta;
+        document.getElementById("button3Text").innerHTML = opcaoC;
+    }
+    
+    function joguinhoClicarOrdem(frase, opcao1, opcao2, opcao3, opcao4, opcao5, opcao6, opcao7, resposta, opcao1t='', opcao2t='', opcao3t='', opcao4t='', opcao5t='', opcao6t='', opcao7t='', videos=200)
+    {
+            //headers
+            esconderMidias();
+            document.getElementById("h2").innerHTML = 'Clique nos sinais em ordem para formar a frase abaixo';
+            document.getElementById("title").innerHTML = 'Joguinho';
+            //texto
+            document.getElementById("span1").innerHTML = frase;
+            //barra resposta
+            document.getElementById("tabela").rows[0].style.backgroundColor = "#FFFDDE";
+            respostaCorreta=resposta;
+            //botões inferiores
+            //botão1
+            document.getElementById("videoButton1Low").style="background: url('')";
+            document.getElementById("videoButton1Low").onclick=function(){compondoFrase('1',opcao1)};
+            document.getElementById("button1VideoLow").src=opcao1;
+            document.getElementById("button1VideoLow").height=videos;
+            document.getElementById("videoButton1LowHelpText").innerHTML=opcao1t;
+            //botão2
+            document.getElementById("videoButton2Low").style="background: url('')";
+            document.getElementById("videoButton2Low").onclick=function(){compondoFrase('2',opcao2)};
+            document.getElementById("button2VideoLow").src=opcao2;
+            document.getElementById("videoButton2LowHelpText").innerHTML=opcao2t;
+            //botão3
+            document.getElementById("videoButton3Low").style="background: url('')";
+            document.getElementById("videoButton3Low").onclick=function(){compondoFrase('3',opcao3)};
+            document.getElementById("button3VideoLow").src=opcao3;
+            document.getElementById("videoButton3LowHelpText").innerHTML=opcao3t;
+            //botão4
+            document.getElementById("videoButton4Low").style="background: url('')";
+            document.getElementById("videoButton4Low").onclick=function(){compondoFrase('4',opcao4)};
+            document.getElementById("button4VideoLow").src=opcao4;
+            document.getElementById("videoButton4LowHelpText").innerHTML=opcao4t;
+            //botão5
+            document.getElementById("videoButton5Low").style="background: url('')";
+            document.getElementById("videoButton5Low").onclick=function(){compondoFrase('5',opcao5)};
+            document.getElementById("button5VideoLow").src=opcao5;
+            document.getElementById("videoButton5LowHelpText").innerHTML=opcao5t;
+            //botão6
+            document.getElementById("videoButton6Low").style="background: url('')";
+            document.getElementById("videoButton6Low").onclick=function(){compondoFrase('6',opcao6)};
+            document.getElementById("button6VideoLow").src=opcao6;
+            document.getElementById("videoButton6LowHelpText").innerHTML=opcao6t;
+            //botão7
+            document.getElementById("videoButton7Low").style="background: url('')";
+            document.getElementById("videoButton7Low").onclick=function(){compondoFrase('7',opcao7)};
+            document.getElementById("button7VideoLow").src=opcao7;
+            document.getElementById("videoButton7LowHelpText").innerHTML=opcao7t;
+            //botões de controle
+            document.getElementById("EnviarResposta").style.display="block";
+            document.getElementById("ResetarResposta").style.display="block";
+    }
+    
+    function checkKey(e) 
+    {
+        if (e.keyCode == '37') 
+        {// left arrow
+            if (PageIndex>0){PageIndex-=1;}
+        }
+        //controle de página aumentar o valor máximo para ser o número de "slides"
+        else if (e.keyCode == '39')
+        {// right arrow
+            if (PageIndex<46){PageIndex+=1;}
+        }
+        
+        //resetando atributos e valores quando tocar na tecla
+        document.getElementById("videoButton4").style.display="none";
+        document.getElementById("videoButton5").style.display="none";
+        document.getElementById("videoButton6").style.display="none";
+        document.getElementById("videoButton7").style.display="none";
+        document.getElementById('dialogBox').style.display = "none";
+        countTimes=0;
+        resposta='';
+        
+        if (PageIndex==0)//pagina inicial
+        {
+            aulaPage('Homepage Trabalho Libras Pronomes', 'Pronomes Pessoais, Demonstrativos e possessivos<br>', '','<br>Eduardo Sperle <br> Victor Marques <br> Filipe Ribeiro');
+        }
+        
+        //pronomes pessoais
+        if (PageIndex==1)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Primeira Pessoa', 'Singular:<br>Eu<br><br>Plural:<br>Nós(dual)<br>Nós (trial)<br>Nós (quadrial)<br>Nós (tod@s)');
+        }
+        if (PageIndex==2)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Primeira Pessoa Singular', '', '', 0, 'eu.png', 800);
+        }
+        if (PageIndex==3)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Primeira Pessoa Plural', '', '', 0, 'nos.png', 1000);
+        }
+        if (PageIndex==4)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Segunda Pessoa', 'Singular:<br>Você<br><br>Plural:<br>Vocês (dual)<br>Vocês (trial)<br>Vocês (quatrial)<br>Vocês (tod@s)<br>Vocês (grupo)');
+        }
+        if (PageIndex==5)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Segunda Pessoa', '', '', 0, 'segundaPessoa.png', 1000);
+        }
+        if (PageIndex==6)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Terceira Pessoa', 'Singular:<br>El@<br><br>Plural:<br>El@s (dual)<br>El@s (trial)<br>El@s (quatrial)<br>El@s (tod@s)<br>El@s (grupo)');
+        }
+        if (PageIndex==7)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Terceira Pessoa Singular', '', '', 0, 'ele.png', 800);
+        }
+        if (PageIndex==8)//
+        {
+            //imagem
+            aulaPage('Pronomes Pessoais', '', 'Terceira Pessoa Plural', '', '', 0, 'eles.png', 800);
+        }
+        if (PageIndex==9)//
+        {
+            aulaPage('Pronomes Pessoais', '', 'Exemplos', 'Eu estudar libras<br>Você estudar libras?<br>El@s quatro gostam de pudim<br>Vocês três praticam esportes?<br>Nós dois vamos ao cinema.<br>Nós cinco somos estudantes.<br>El@ é professor@.');
+        }
+        
+        //pronomes Demonstrativos
+
+        if (PageIndex==10)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Pronomes Demonstrativos','Est@<br>Ess@<br>Aquel@');
+        }
+        if (PageIndex==11)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Est@', '● Equivalente à este/deste/esta/desta/isto/disto/aqui<br>● Usado para indicar algo próximo de quem fala<br>● Expressão facial indica muito próximo', 'este.mp4', 700);
+        }
+        if (PageIndex==12)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Exemplo com est@','Esta borracha é branca');
+        }
+        if (PageIndex==13)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Ess@', '● Equivalente à esse/desse/dessa/essa/isso/disso/aí<br>● Usado para indicar algo próximo de quem ouve', 'esse.mp4', 700);
+        }
+        if (PageIndex==14)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Exemplo com ess@', 'Essa borracha é branca');
+        }
+        if (PageIndex==15)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Aquel@', '● Equivalente à aquele/daquele/aquela/daquela/aquilo/daquilo/ali<br>● Usado para indicar algo distante de quem fala e de quem ouve<br>● Expressão facial indica muito longe','aquele.mp4', 700);
+        }
+        if (PageIndex==16)
+        {
+            aulaPage('Pronomes Demonstrativos', '', 'Exemplo com aquela@', 'Aquela borracha é branca');
+        }
+        
+        //pronomes possessivos
+        
+        if (PageIndex==17)
+        {
+            aulaPage('Pronomes possessivos', '', 'Pronomes possessivos', 'Meu/Minha<br>Seu/Sua<br>Dele/Dela');
+        }
+        if (PageIndex==18)
+        {
+            aulaPage('Pronomes possessivos', '', 'Meu/Minha', 'Primeira forma', 'meu1.mp4', 700);
+            
+        }
+        if (PageIndex==19)
+        {
+            aulaPage('Pronomes possessivos', '', 'Meu/Minha', 'Segunda forma', 'meu2.mp4', 700);
+            
+        }
+        if (PageIndex==20)
+        {
+            aulaPage('Pronomes possessivos', '', 'Exemplo com Meu/Minha', 'Esta folha é minha.');
+        }
+        if (PageIndex==21)
+        {
+            aulaPage('Pronomes possessivos', '', 'Seu/Sua', '', 'seu.mp4', 700);
+        }
+        if (PageIndex==22)
+        {
+            aulaPage('Pronomes possessivos', '', 'Exemplo com Seu/Sua', 'Essa caneta é sua.');            
+        }
+        if (PageIndex==23)
+        {
+            aulaPage('Pronomes possessivos', '', 'Dele/Dela', '', 'dele.mp4', 700);
+        }
+        if (PageIndex==24)
+        {
+            aulaPage('Pronomes possessivos', '', 'Exemplo com Dele/Dela', 'Aquela borracha é dele.');
+        }
+        if (PageIndex==25)
+        {
+            aulaPage('Pronomes possessivos', '', 'Plurais:<br>Nosso', '', 'nosso.mp4', 700);
+        }
+        if (PageIndex==26)
+        {
+            aulaPage('Pronomes possessivos', '', 'Plurais:<br>Seus/Suas', '', 'seus.mp4', 700);
+        }
+        if (PageIndex==27)
+        {
+            aulaPage('Pronomes possessivos', '', 'Plurais:<br>Deles/Delas', '', 'deles.mp4', 700);
+        }
+        
+        //atividades
+        
+        if (PageIndex==28)
+        {
+            aulaPage('Atividades', 'Hora do joguinho', '', 'Responda corretamente as perguntas a seguir');
+        }
+        if (PageIndex==29)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'dele.mp4', 'Aquele', opcaoErrada, 'Seu', opcaoErrada, 'Dele', opcaoCerta);
+        }
+        if (PageIndex==30)
+        {
+            joguinhoOpcoesLibras('Clique no sinal de ess@', '' ,'esse.mp4', opcaoCerta, 'este.mp4', opcaoErrada, 'aquele.mp4', opcaoErrada);
+        }
+        if (PageIndex==31)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'aquele.mp4', 'Esse', opcaoErrada, 'Este', opcaoErrada, 'Aquele', opcaoCerta)
+        }
+        if (PageIndex==32)
+        {
+           joguinhoClicarOrdem('Esta borracha é branca', 'aquele.mp4', 'esse.mp4', 'este.mp4', 'borracha.mp4', 'caneta.mp4', 'azul.mp4', 'branco.mp4', '347','', '', '', 'Borracha','Caneta', 'Azul', 'Branco');
+        }
+        if (PageIndex==33)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'este.mp4', 'Branco', opcaoErrada, 'Este', opcaoCerta, 'Aquele', opcaoErrada);
+        }
+        if (PageIndex==34)
+        {
+            joguinhoQuestaoLibra('Qual o significado da frase abaixo?', 'frase1.mp4', 'Aquela borracha é minha', opcaoErrada, 'Essa borracha é sua', opcaoErrada, 'Essa borracha é minha', opcaoCerta);
+        }
+        if (PageIndex==35)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'nos.mp4', 'Nós', opcaoCerta, 'Você', opcaoErrada, 'Ele', opcaoErrada);
+        }
+        
+        if (PageIndex==36)
+        {
+            joguinhoOpcoesLibras('Clique no equivalente em libras da frase abaixo:', 'Ele gosta daquele livro' ,'frase2Certa.mp4', opcaoCerta, 'frase2Errada1.mp4', opcaoErrada, 'frase2Errada2.mp4', opcaoErrada);
+        }
+        if (PageIndex==37)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'meu2.mp4', 'Seu', opcaoErrada, 'Meu', opcaoCerta, 'Dele', opcaoErrada);
+        }
+        if (PageIndex==38)
+        {
+            joguinhoOpcoesLibras('Clique no equivalente em libras da frase abaixo:', 'Nós temos essas canetas' ,'frase3Errada1.mp4', opcaoErrada, 'frase3Certa.mp4', opcaoCerta, 'frase3Errada2.mp4', opcaoErrada);
+        }
+        if (PageIndex==39)
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'seus.mp4', 'Deles', opcaoErrada, 'Seus', opcaoCerta, 'Dele', opcaoErrada);
+        }
+        if (PageIndex==40)
+        {
+            joguinhoQuestaoLibra('Qual o significado da frase abaixo?', 'frase4.mp4', 'Eles tem aquela caneta', opcaoErrada, 'Vocês dois tem aquela caneta', opcaoErrada, 'Vocês dois tem essa caneta', opcaoCerta);
+        }
+        if (PageIndex==41)
+        {
+            joguinhoClicarOrdem('Nós temos aquelas canetas azuis', 'nos.mp4', 'eu.mp4', 'ter.mp4', 'aquele.mp4', 'caneta.mp4', 'azul.mp4', 'esse.mp4', '13456','', '', 'Ter', '','Caneta', 'Azul', '');
+        }
+        if (PageIndex==42)
+        {
+            joguinhoClicarOrdem('Eles tem essas borrachas', 'voce.mp4', 'eles.mp4', 'ter.mp4', 'este.mp4', 'esse.mp4', 'borracha.mp4', 'ele.mp4', '2356','', '', 'Ter', 'branco','', 'Borracha', '');
+        }
+        if (PageIndex==43)
+        {
+            joguinhoClicarOrdem('Este livro é deles', 'branco.mp4', 'este.mp4', 'ele.mp4', 'livro.mp4', 'seus.mp4', 'deles.mp4', 'caneta.mp4', '246','Branco', '', '', 'Livro','', '', 'Caneta');
+        }
+        if (PageIndex==44)
+        {
+            joguinhoClicarOrdem('Eu vejo aquele menino', 'ver.mp4', 'menino.mp4', 'nos.mp4', 'este.mp4', 'aquele.mp4', 'eu.mp4', 'seus.mp4', '6152','Ver', 'Menino', '', '','', '', '');
+        }
+        if (PageIndex==45)
+        {
+            joguinhoClicarOrdem('Este e esse são quase iguais.', 'quase.mp4', 'esse.mp4', 'igual.mp4', 'branco.mp4', 'este.mp4', 'eu.mp4', 'seus.mp4', '5213','Quase', '', 'Igual', 'Branco','', '', '');
+        }
+        
+        //ultimo slide
+        if (PageIndex==46)
+        {
+            aulaPage('Fim', 'Fim', 'Obrigado pela presença', '●Fontes:<br><a href="http://www.acessibilidadebrasil.org.br/libras_3">Dicionário Libras</a><br><a href="https://www.youtube.com/watch?v=2MWdBPOK5qA">Tube Libras</a><br>Slides do Drive<br>●Engenharia de Software:<br><a href="https://github.com/esh64/DuoLIBRAS">esh64/DuoLIBRAS</a>');
+        }
+    }
+  </script>
+    
+</body>
+</html> 
