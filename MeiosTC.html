@@ -1,0 +1,672 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  background-color: #E9E9E9;
+}
+
+h1 {
+  color: #242424;
+  font-family: Calibri;
+  text-align: center;
+  font-size: 80px;
+}
+
+h2 {
+  color: #242424;
+  font-family: Calibri;
+  text-align: center;
+  font-size: 60px;
+}
+
+p{
+ color: #242424;
+ font-family: Calibri;
+ text-align: center;
+ font-size: 35px;
+}
+
+span{
+ color: #242424;
+ background-color: #FAFAFA;
+ text-align: center;
+ font-size: 30px;
+}
+
+button {
+  background-color: #FCFCFC;
+  border: none;
+  color: #242424;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; 
+  font-size: 35px;
+  margin: 4px 2px; 
+  cursor: pointer;
+  border-radius: 65px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #FAFAFA;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+  height: 70%;
+}
+
+a:link {
+  color: #E0115F; 
+  background-color: transparent; 
+  text-decoration: none;
+}
+
+a:visited {
+  color: #E0115F;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #E0115F;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: #590626;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+</style>
+</head>
+<title id='title'>Trabalho Libras: Meios de transporte e comunicação</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<body style="text-align:center" onload='aviso()'>
+    <!--headers -->
+    <div style="background-color: #B7B7B7">
+        <h1 id= 'h1'> Meios de transporte e comunicação</h1>
+        <h2 id='h2'></h2>
+    </div>
+    <!--texto-->
+    <p id='p1'>Eduardo Honorato<br> Victor Marques <br> Filipe Ribeiro</p>
+    <img id='imagemQuestao' src="" height=0></img>
+    
+<!--     Video Atividade -->
+    <video muted loop id = 'videoAtividade' src="" autoplay> </video>
+    
+    <!--imagem -->
+    <img id = "imagemSlide" src="">
+    
+    <!--dialogBox-->
+    <div id="dialogBox" class="modal">
+    <!-- Modal content myModal-->
+        <div class="modal-content">
+            <p id="dialogBoxText"> </p>
+             <br>
+            <video muted loop id="dialogBoxVideo" src="" autoplay height=300> </p>
+        </div>
+    </div>
+    
+    <!--Atividades-->
+    <table id="tabela" align="center">
+    <!--Botões Para atividades 1 e 2-->
+    <tr>
+        <td><button id='videoButton1' onclick="" style="display:none;"><video muted loop id = 'button1Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton2' onclick="" style="display:none;"><video muted loop id = 'button2Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='videoButton3' onclick="" style="display:none;"><video muted loop id = 'button3Video' height=400 src="" autoplay> </video></button></td>
+        <td><button id='imgButton1' onclick="" style="display:none;" ><img id = 'button1Img' src='' height=0></img></button></td>
+        <td><button id='imgButton2' onclick="" style="display:none;" ><img id = 'button2Img' src='', height=0></img></button></td>
+        <td><button id='imgButton3' onclick="" style="display:none;" ><img id = 'button3Img' serc='', height=0></img></button></td>
+    </tr>
+    <!--Botões Para atividades 3-->
+    <!--Botões Para atividades linha 1-->
+    <tr>
+        <td id='item11'><button id='videoButton11' onclick="" style="display:none;"><video muted loop id = 'button11Video' height=400 src="" autoplay> </video></button></td>
+        <td id='item12'><button id='imgButton11' onclick="" style="display:none;"><img id = 'button11img' height=200 src=""> </img></button></td>
+    </tr>
+    <tr>
+        <td id='item21'><button id='videoButton21' onclick="" style="display:none;"><video muted loop id = 'button21Video' height=400 src="" autoplay> </video></button></td>
+        <td id='item22'><button id='imgButton21' onclick="" style="display:none;"><img id = 'button21img' height=200 src=""> </img></button></td>
+    </tr>
+    <tr>
+        <td id='item31'><button id='videoButton31' onclick="" style="display:none;"><video muted loop id = 'button31Video' height=400 src="" autoplay> </video></button></td>
+        <td id='item32'><button id='imgButton31' onclick="" style="display:none;"><img id = 'button31img' height=200 src=""> </img></button></td>
+    </tr>
+    </table>
+    
+  <script>
+    var maxpage=64;
+    var PageIndex=0;
+    var cod1="";
+    var id1="";
+    var ordemPar=0;
+    var countParesAcertados=0;
+    
+    document.body.onkeydown = checkKey;
+    
+    //definindo função onclick na janela do navegador para esconder o dialogBox
+    window.onclick = function(event)
+    {
+        if (event.target ==  document.getElementById('dialogBox'))
+        {
+            document.getElementById('dialogBox').style.display = "none";
+        }
+    }
+    //definindo função que avisa ao usuário sobre o uso da página
+    function aviso()
+    {
+        document.getElementById('dialogBoxText').innerHTML = 
+    '1)Ajuste o zoom da página até conseguir ler este quadro inteiro<br>2)Esta página não é mobile friendly<br>3)A mudança de slides é feita por meio das "setas" do teclado. Esquerda e Direita<br>4)Ao pressionar qualquer tecla a página dá refresh nos conteúdos midiáticos';
+        document.getElementById('dialogBox').style.display = "block";
+    }
+    //definindo função para exibir o dialogBox com mensagem de Erro
+    function opcaoErrada()
+    {
+           document.getElementById("dialogBoxVideo").src='errar.mp4';
+           document.getElementById('dialogBoxText').innerHTML = 'Você errou... <br>Tente de novo!';
+           document.getElementById('dialogBox').style.display = "block";
+    }
+    //definindo função para exibir o dialogBox com mensagem de Acerto
+    function opcaoCerta()
+    {
+        document.getElementById('dialogBoxText').innerHTML = 'Você acertou!';
+        document.getElementById("dialogBoxVideo").src='parabens.mp4';
+        document.getElementById('dialogBox').style.display = "block";
+    }
+    
+    function limparTabela()
+    {
+        for (var i=1; i<4; i++)
+        {
+            for (var j=1; j<3; j++)
+            {
+                var idItem='item'+i+j;
+                document.getElementById(idItem).style.backgroundColor = "#DEDEDE"
+            }
+        }
+    }
+    
+    function tocarNoPar(codItem, elementID,posx, posy)
+    {
+        idItem='item'+posx+posy;
+        document.getElementById(idItem).style.backgroundColor = "#FCFCFC"
+        if (ordemPar==0)
+        {
+            cod1=codItem;
+            id1=elementID
+            ordemPar=1;
+        }
+        else
+        {
+            if ((codItem==cod1) && (elementID!=id1))
+            {
+                countParesAcertados+=1;
+                document.getElementById(elementID).style.display="none";
+                document.getElementById(id1).style.display="none";
+                if (countParesAcertados==3)
+                {
+                    opcaoCerta();
+                }
+                
+            }
+            cod1="";
+            id1="";
+            limparTabela();
+            ordemPar=0;
+        }
+    }
+	
+	function hideRows()
+	{
+		document.getElementById("tabela").rows[1].style.display = "none";
+		document.getElementById("tabela").rows[2].style.display = "none";
+		document.getElementById("tabela").rows[3].style.display = "none";
+	}
+
+	function showRows()
+	{
+		document.getElementById("tabela").rows[1].style.display = "";
+		document.getElementById("tabela").rows[2].style.display = "";
+		document.getElementById("tabela").rows[3].style.display = "";
+	}
+    
+    //definindo função que esconde todos os videos, botoes e imagens
+    function esconderMidias()
+    {
+            limparTabela();
+            document.getElementById("imagemSlide").src = '';
+            document.getElementById("imagemSlide").height = 0;
+            document.getElementById("h1").innerHTML = '';
+            document.getElementById("h2").innerHTML = '';
+            document.getElementById("p1").innerHTML = '';
+            document.getElementById("imagemQuestao").src ='';
+			document.getElementById("imagemQuestao").height =0;
+            document.getElementById("videoAtividade").src='';
+            document.getElementById("videoAtividade").height=0;
+            document.getElementById("videoButton1").style.display="none";
+            document.getElementById("videoButton2").style.display="none";
+            document.getElementById("videoButton3").style.display="none";
+            document.getElementById("imgButton1").style.display="none";
+            document.getElementById("imgButton2").style.display="none";
+            document.getElementById("imgButton3").style.display="none";
+            document.getElementById("videoButton11").style.display="none";
+            document.getElementById("videoButton21").style.display="none";
+            document.getElementById("videoButton31").style.display="none";
+            document.getElementById("imgButton11").style.display="none";
+            document.getElementById("imgButton21").style.display="none";
+            document.getElementById("imgButton31").style.display="none";
+            
+    }
+    //definindo função de exibir slide de aula
+    function aulaPage(ttitle='',th1='', th2='', tp1='', nvideo='', svideo=0, nimage='', simage=0)
+    {
+            esconderMidias();
+            //image
+            document.getElementById("imagemSlide").src = nimage;//nimagem é o nome da imagem
+            document.getElementById("imagemSlide").height=simage;//simagem é o tamanho da imagem
+            //header
+            document.getElementById("title").innerHTML = ttitle;//sttitle é o texto do titulo
+            document.getElementById("h1").innerHTML = th1;//th1 é o texto do header1
+            document.getElementById("h2").innerHTML = th2;//th2 é o texto do header2
+            //texto
+            document.getElementById("p1").innerHTML = tp1;//tp1 é o texto do p1
+            //video
+            document.getElementById("videoAtividade").src=nvideo//nvideo é o nome do video
+            document.getElementById("videoAtividade").height=svideo;//svideo é o tamanho do video
+    }
+    
+    function joguinhoOpcoesLibras(questao, imagem,opcaoA, opcaoAresposta, opcaoB, opcaoBresposta, opcaoC, opcaoCresposta, opcaoAS=200, opcaoBS=200, opcaoCS=200, imgS=200)
+    {
+        esconderMidias();
+		hideRows();
+        document.getElementById("title").innerHTML = 'Joguinho';
+        document.getElementById("h2").innerHTML = questao;
+		document.getElementById("imagemQuestao").src = imagem;
+		document.getElementById("imagemQuestao").height = imgS;
+		if (imagem=='')
+		{
+			document.getElementById("imagemQuestao").height =0;
+		}
+		//botão1
+        document.getElementById("videoButton1").style="background: url('')";
+        document.getElementById("videoButton1").onclick=opcaoAresposta;
+        document.getElementById("button1Video").src=opcaoA;
+        document.getElementById("button1Video").height=opcaoAS;
+        //botão2
+        document.getElementById("videoButton2").style="background: url('')";
+        document.getElementById("videoButton2").onclick=opcaoBresposta;
+        document.getElementById("button2Video").src=opcaoB;
+        document.getElementById("button2Video").height=opcaoBS;
+        //botão3
+        document.getElementById("videoButton3").style="background: url('')";
+        document.getElementById("videoButton3").onclick=opcaoCresposta;
+        document.getElementById("button3Video").src=opcaoC;
+        document.getElementById("button3Video").height=opcaoCS;
+    }
+
+    function joguinhoQuestaoLibra(questaoTexto, questaoVideoN, opcaoA, opcaoAresposta, opcaoB, opcaoBresposta, opcaoC, opcaoCresposta, questaoVideonS=200, heightA=200, heightB=200, heightC=200)
+    {
+        esconderMidias();
+		hideRows();
+        document.getElementById("title").innerHTML = 'Joguinho';
+        document.getElementById("h2").innerHTML = questaoTexto;
+        document.getElementById("videoAtividade").src=questaoVideoN;//nome do video
+        document.getElementById("videoAtividade").height=questaoVideonS;//tamanho do video
+        //botão 1
+		document.getElementById("imgButton1").style.display="block";
+        document.getElementById("imgButton1").onclick=opcaoAresposta;
+        document.getElementById("button1Img").src = opcaoA;
+		document.getElementById("button1Img").height = heightA;
+        //botão 2
+        document.getElementById("imgButton2").style.display="block";
+        document.getElementById("imgButton2").onclick=opcaoBresposta;
+		document.getElementById("button2Img").src = opcaoB;
+        document.getElementById("button2Img").height = heightB;
+        //botão 3
+        document.getElementById("imgButton3").style.display="block";
+        document.getElementById("imgButton3").onclick=opcaoCresposta;
+        document.getElementById("button3Img").src = opcaoC;
+		document.getElementById("button3Img").height = heightC;
+    }
+    
+    function joguinhoClicarPares(video1, codVideo1,img1, codImg1, video2, codVideo2, img2, codImg2, video3, codVideo3, img3, codImg3, video1S=90, video2S=90, video3S=90, img1S=90, img2S=90, img3S=90)
+    {
+        esconderMidias();
+		showRows()
+        document.getElementById("title").innerHTML = 'Joguinho';
+        document.getElementById("h2").innerHTML = "Toque Nos Pares";
+        //linha1
+        document.getElementById("videoButton11").style="background: url('')";
+        document.getElementById("videoButton11").onclick=function(){tocarNoPar(codVideo1,"videoButton11",'1','1')};
+        document.getElementById("button11Video").src=video1;
+        document.getElementById("button11Video").height=video1S;
+        document.getElementById("imgButton11").style="background: url('')";
+        document.getElementById("imgButton11").onclick=function(){tocarNoPar(codImg1, "imgButton11",'1','2')};
+        document.getElementById("button11img").src=img1;
+        document.getElementById("button11img").height=img1S;
+        //linha2
+        document.getElementById("videoButton21").style="background: url('')";
+        document.getElementById("videoButton21").onclick=function(){tocarNoPar(codVideo2,"videoButton21",'2','1')};
+        document.getElementById("button21Video").src=video2;
+        document.getElementById("button21Video").height=video2S;
+        document.getElementById("imgButton21").style="background: url('')";
+        document.getElementById("imgButton21").onclick=function(){tocarNoPar(codImg2,"imgButton21",'2','2')};
+        document.getElementById("button21img").src=img2;
+        document.getElementById("button21img").height=img2S;
+        //linha3
+        document.getElementById("videoButton31").style="background: url('')";
+        document.getElementById("videoButton31").onclick=function(){tocarNoPar(codVideo3,"videoButton31",'3','1')};
+        document.getElementById("button31Video").src=video3;
+        document.getElementById("button31Video").height=video3S;
+        document.getElementById("imgButton31").style="background: url('')";
+        document.getElementById("imgButton31").onclick=function(){tocarNoPar(codImg3,"imgButton31",'3','2')};
+        document.getElementById("button31img").src=img3;
+        document.getElementById("button31img").height=img3S;
+    }
+    
+    function checkKey(e) 
+    {
+        if (e.keyCode == '37') 
+        {// left arrow
+            if (PageIndex>0){PageIndex-=1;}
+        }
+        //controle de página aumentar o valor máximo para ser o número de "slides"
+        else if (e.keyCode == '39')
+        {// right arrow
+            if (PageIndex<maxpage){PageIndex+=1;}
+        }
+        
+        //resetando atributos e valores quando tocar na tecla
+        document.getElementById('dialogBox').style.display = "none";
+		countParesAcertados=0;
+        
+        if (PageIndex==0)//pagina inicial
+        {
+            aulaPage('Trabalho Libras: Meios de transporte e comunicação', 'Meios de transporte e comunicação<br>', '','<br>Eduardo Honorato <br> Victor Marques <br> Filipe Ribeiro');
+        }
+		//Meios de transporte
+        if (PageIndex==1)
+        {
+            aulaPage('Meios de Transporte', '', 'Meios de Transporte', '', 'transporte.mp4', 300, 'transporte.png', 300);
+        }
+        if (PageIndex==2)
+        {
+            aulaPage('Meios de Transporte', '', 'Avião', '', 'aviao.mp4', 300, 'aviao.png', 300);
+        }
+        if (PageIndex==3)
+        {
+            aulaPage('Meios de Transporte', '', 'Aeroporto', '', 'aeroporto.mp4', 300, 'aeroporto.png', 300);
+        }
+        if (PageIndex==4)
+        {
+            aulaPage('Meios de Transporte', '', 'Ambulância', '', 'ambulancia.mp4', 300, 'ambulancia.png', 300);
+        }
+        if (PageIndex==5)
+        {
+            aulaPage('Meios de Transporte', '', 'Andar', '', 'andar.mp4', 300, 'andar.png', 300);
+        }
+        if (PageIndex==6)
+        {
+            aulaPage('Meios de Transporte', '', 'Balsa', '', 'balsa.mp4', 300, 'balsa.png', 300);
+        }
+        if (PageIndex==7)
+        {
+            aulaPage('Meios de Transporte', '', 'Barco', '', 'barco.mp4', 300, 'barco.png', 300);
+        }
+        if (PageIndex==8)
+        {
+            aulaPage('Meios de Transporte', '', 'Bicicleta', '', 'bicicleta.mp4', 300, 'bicicleta.png', 300);
+        }
+        if (PageIndex==9)
+        {
+            aulaPage('Meios de Transporte', '', 'Caminhão', '', 'caminhao.mp4', 300, 'caminhao.png', 300);
+        }
+        if (PageIndex==10)
+        {
+            aulaPage('Meios de Transporte', '', 'Camionete', '', 'caminhonete.mp4', 300, 'caminhonete.png', 300);
+        }
+        if (PageIndex==11)
+        {
+            aulaPage('Meios de Transporte', '', 'Canoa', '', 'canoa.webm', 300, 'canoa.png', 300);
+        }
+        if (PageIndex==12)
+        {
+            aulaPage('Meios de Transporte', '', 'Carro', '', 'carro.mp4', 300, 'carro.png', 300);
+        }
+        if (PageIndex==13)
+        {
+            aulaPage('Meios de Transporte', '', 'Carroça', '', 'carroca.mp4', 300, 'carroca.png', 300);
+        }
+        if (PageIndex==14)
+        {
+            aulaPage('Meios de Transporte', '', 'Cavalo', '', 'cavalo.mp4', 300, 'cavalo.png', 300);
+        }
+        if (PageIndex==15)
+        {
+            aulaPage('Meios de Transporte', '', 'Foguete', '', 'foguete.mp4', 300, 'foguete.png', 300);
+        }
+        if (PageIndex==16)
+        {
+            aulaPage('Meios de Transporte', '', 'Lancha', '', 'lancha.mp4', 300, 'lancha.png', 300);
+        }
+        if (PageIndex==17)
+        {
+            aulaPage('Meios de Transporte', '', 'Limousine', '', 'limusine.mp4', 300, 'limusine.png', 300);
+        }
+        if (PageIndex==18)
+        {
+            aulaPage('Meios de Transporte', '', 'Metrô', '', 'metro.mp4', 300, 'metro	.png', 300);
+        }
+        if (PageIndex==19)
+        {
+            aulaPage('Meios de Transporte', '', 'Micro Ônibus', '', 'microonibus.mp4', 300, 'microonibus.png', 200);
+        }
+        if (PageIndex==20)
+        {
+            aulaPage('Meios de Transporte', '', 'Moto', '', 'moto.mp4', 300, 'moto.png', 200);
+        }
+        if (PageIndex==21)
+        {
+            aulaPage('Meios de Transporte', '', 'Navio', '', 'navio.mp4', 300, 'navio.png', 300);
+        }
+        if (PageIndex==22)
+        {
+            aulaPage('Meios de Transporte', '', 'Ponto de Ônibus', '', 'pontoOnibus.mp4', 300, 'pontoOnibus.png', 300);
+        }
+        if (PageIndex==23)
+        {
+            aulaPage('Meios de Transporte', '', 'Ônibus', '', 'onibus.mp4', 300, 'onibus.png', 300);
+        }
+        if (PageIndex==24)
+        {
+            aulaPage('Meios de Transporte', '', 'Porto', '', 'porto.mp4', 300, 'porto.png', 300);
+        }
+        if (PageIndex==25)
+        {
+            aulaPage('Meios de Transporte', '', 'Táxi', '', 'taxi.mp4', 300, 'taxi.png', 300);
+        }
+        if (PageIndex==26)
+        {
+            aulaPage('Meios de Transporte', '', 'Trem', '', 'trem.mp4', 300, 'trem.png', 300);
+        }
+        if (PageIndex==27)
+        {
+            aulaPage('Meios de Transporte', '', 'Uber', '', 'uber.webm', 300, 'uber.png', 300);
+        }
+		//meios de comunicação
+        if (PageIndex==28)
+        {
+            aulaPage('Meios de Comunicações', '', 'Meios de Comunicações', '', 'comunicacao.mp4', 300, 'comunicacao.png', 300);
+        }
+        if (PageIndex==29)
+        {
+            aulaPage('Meios de Comunicações', '', 'Carta', '', 'carta.mp4', 300, 'carta.png', 300);
+        }
+        if (PageIndex==30)
+        {
+            aulaPage('Meios de Comunicações', '', 'Celular', '', 'celular.mp4', 300, 'celular.png', 300);
+        }
+        if (PageIndex==31)
+        {
+            aulaPage('Meios de Comunicações', '', 'Computador', '', 'Computador.mp4', 300, 'Computador.png', 300);
+        }
+        if (PageIndex==32)
+        {
+            aulaPage('Meios de Comunicações', '', 'E-mail', '', 'email.mp4', 300, 'email.png', 300);
+        }
+        if (PageIndex==33)
+        {
+            aulaPage('Meios de Comunicações', '', 'Mandar E-mail', '', 'mandaremail.mp4', 300, 'email.png', 300);
+        }
+        if (PageIndex==34)
+        {
+            aulaPage('Meios de Comunicações', '', 'Receber E-mail', '', 'receberemail.mp4', 300, 'email.png', 300);
+        }
+        if (PageIndex==35)
+        {
+            aulaPage('Meios de Comunicações', '', 'Facebook', '', 'facebook.mp4', 300, 'facebook.png', 300);
+        }
+        if (PageIndex==36)
+        {
+            aulaPage('Meios de Comunicações', '', 'Internet', '', 'internet.mp4', 300, 'internet.png', 300);
+        }
+        if (PageIndex==37)
+        {
+            aulaPage('Meios de Comunicações', '', 'Jornal', '', 'jornal.mp4', 300, 'jornal.png', 300);
+        }
+        if (PageIndex==38)
+        {
+            aulaPage('Meios de Comunicações', '', 'Telefone', '', 'telefone.mp4', 300, 'telefone.png', 300);
+        }
+        if (PageIndex==39)
+        {
+            aulaPage('Meios de Comunicações', '', 'Televisão', '', 'televisao.mp4', 300, 'televisao.png', 300);
+        }
+        if (PageIndex==40)
+        {
+            aulaPage('Meios de Comunicações', '', 'Rádio', '', 'radio.mp4', 300, 'radio.png', 300);
+        }		
+        if (PageIndex==41)
+        {
+            aulaPage('Meios de Comunicações', '', 'Whastsapp', '', 'zapzap.mp4', 300, 'zapzap.png', 300);
+		}
+		//atividade
+		if (PageIndex==42)
+		{
+			aulaPage('Atividades', 'Hora do joguinho', '', 'Responda corretamente as perguntas a segui', '', 0, 'joguinho.png', 300);
+		}
+		if (PageIndex==43)//1
+        {
+            joguinhoClicarPares('aviao.mp4', '1', 'aviao.png', '1', 'carro.mp4', '2', 'carro.png', '2','celular.mp4', '3', 'celular.png', '3');
+        }
+        if (PageIndex==44)//2
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'trem.mp4', 'trem.png', opcaoCerta, 'metro.png', opcaoErrada, 'caminhao.png', opcaoErrada);
+        }
+        if (PageIndex==45)//3
+        {
+            joguinhoOpcoesLibras('Clique no sinal do desenho abaixo:', 'canoa.png' ,'navio.mp4', opcaoErrada, 'canoa.webm', opcaoCerta, 'televisaojogo.mp4', opcaoErrada);
+        }
+        if (PageIndex==46)//4
+        {
+            joguinhoOpcoesLibras('Qual dos sinais abaixo é um meio de transporte', '' ,'zapzap.mp4', opcaoErrada, 'celular.mp4', opcaoErrada, 'ambulancia.mp4', opcaoCerta);
+        }
+		if (PageIndex==47)//5
+        {
+            joguinhoClicarPares('barco.mp4', '1', 'caminhao.png', '3', 'ambulancia.mp4', '2', 'barco.png', '1','caminhao.mp4', '3', 'ambulancia.png', '2');
+        }
+		if (PageIndex==48)//6
+        {
+            joguinhoClicarPares('aviao.mp4', '1', 'cavalo.png', '3', 'televisaojogo.mp4', '2', 'aviao.png', '1','cavalo.mp4', '3', 'televisao.png', '2');
+        }
+		if (PageIndex==49)//7
+        {
+            joguinhoClicarPares('carro.mp4', '1', 'bicicleta.png', '2', 'foguete.mp4', '3', 'carro.png', '1','bicicleta.mp4', '2', 'foguete.png', '3');
+        }
+		if (PageIndex==50)//8
+        {
+            joguinhoClicarPares('taxi.mp4', '1', 'metro.png', '3', 'uber.webm', '2', 'uber.png', '2','metro.mp4', '3', 'taxi.png', '1');
+        }
+		if (PageIndex==51)//9
+        {
+            joguinhoClicarPares('zapzap.mp4', '1', 'carroca.png', '2', 'carroca.mp4', '2', 'televisao.png', '3','televisaojogo.mp4', '3', 'zapzap.png', '1');
+        }
+		if (PageIndex==52)//10
+        {
+            joguinhoOpcoesLibras('Clique no sinal do desenho abaixo:', 'jornal.png' ,'internetjogo.mp4', opcaoErrada, 'jornaljogo.mp4', opcaoCerta, 'limusine.mp4', opcaoErrada);
+        }
+		if (PageIndex==53)//11
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'navio.mp4', 'navio.png', opcaoCerta, 'onibus.png', opcaoErrada, 'metro.png', opcaoErrada);
+        }
+		if (PageIndex==54)//12
+        {
+            joguinhoOpcoesLibras('Qual dos sinais abaixo é um meio de comunicação', '' ,'radio.mp4', opcaoCerta, 'lancha.mp4', opcaoErrada, 'limusine.mp4', opcaoErrada);
+        }
+		if (PageIndex==55)//13
+        {
+            joguinhoOpcoesLibras('Qual dos sinais é um meio de transporte aquático', '' ,'foguete.mp4', opcaoErrada, 'moto.mp4', opcaoErrada, 'balsa.mp4', opcaoCerta);
+        }
+        if (PageIndex==56)//14
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'bicicleta.mp4', 'pontoOnibus.png', opcaoErrada, 'bicicleta.png', opcaoCerta, 'porto.png', opcaoErrada);
+        }
+        if (PageIndex==57)//15
+        {
+            joguinhoQuestaoLibra('Que sinal é este?', 'moto.mp4', 'moto.png', opcaoCerta, 'radio.png', opcaoCerta, 'caminhonete.png', opcaoErrada);
+        }
+		if (PageIndex==58)//16
+        {
+            joguinhoOpcoesLibras('Sinais para:<br>Gosto de ler jornal', '' ,'frase1CorretoTC.mp4', opcaoCerta, 'frase1Errado1TC.mp4', opcaoErrada, 'frase1Errado2TC.mp4', opcaoErrada, 300, 300, 300);
+        }
+		if (PageIndex==59)//17
+        {
+            joguinhoOpcoesLibras('Sinais para:<br>Não gosto de assistir TV', '' ,'frase2Errada1TC.mp4', opcaoErrada, 'frase2Errada2TC.mp4', opcaoErrada, 'frase2CorretoTC.mp4', opcaoCerta, 300, 300, 300);
+        }
+		if (PageIndex==60)//18
+        {
+            joguinhoOpcoesLibras('Sinais para:<br>Qual seu número do zap?', '' ,'frase2Errada1TC.mp4', opcaoErrada, 'frase3CorretoTC.mp4', opcaoCerta, 'frase3Errada2TC.mp4', opcaoErrada, 300, 300, 300);
+        }
+		if (PageIndex==61)//19
+        {
+            joguinhoQuestaoLibra('O que ele está dizendo?', 'LigaProMeuCelularAmanha.mp4','LigueiProMeuIrmaoHoje.png', opcaoErrada, 'LigaProMeuTelefone.png', opcaoErrada, 'LigaProMeuCelularAmanha.png', opcaoCerta, 300, 30, 30, 30);
+        }
+		if (PageIndex==62)//20
+        {
+            joguinhoQuestaoLibra('O que ele está dizendo?', 'NaoRecebiSeuEmail.mp4', 'RecebiSeuEmail.png', opcaoErrada, 'naorecebiseuemail.png', opcaoCerta, 'Memandaume-mail.png', opcaoErrada, 300, 30, 30, 30);
+        }
+		if (PageIndex==63)//21
+        {
+            joguinhoQuestaoLibra('O que ele está dizendo?', 'PrecisoDeUmComputadorNovo.mp4', 'PrecisoDeUmComputadorNovo.png', opcaoCerta, 'JogueiComputadorFora.png', opcaoErrada, 'estecomputadornaofunciona.png', opcaoErrada, 300, 30, 30, 30);
+        }
+        //ultimo slide
+        if (PageIndex==64)
+        {
+            aulaPage('Fim', 'Fim', 'Obrigado pela presença', '●Fontes:<br><a href="http://www.acessibilidadebrasil.org.br/libras_3">Dicionário Libras</a><br>●Engenharia de Software:<br><a href="https://github.com/esh64/DuoLIBRAS">esh64/DuoLIBRAS</a>');
+        }
+    }
+  </script>
+    
+</body>
+</html> 
